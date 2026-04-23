@@ -300,6 +300,7 @@ export default function App() {
           <button 
             onClick={() => setShowSettings(true)}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500"
+            data-testid="setting_button"
           >
             <Settings size={20} />
           </button>
@@ -321,6 +322,7 @@ export default function App() {
               className={`flex-1 py-2 text-sm font-bold rounded-lg relative z-10 transition-colors ${
                 mode === 'inclusive' ? 'text-blue-600' : 'text-gray-500'
               }`}
+              data-testid="inclusive_toggle"
             >
               Tax Inclusive
             </button>
@@ -329,6 +331,7 @@ export default function App() {
               className={`flex-1 py-2 text-sm font-bold rounded-lg relative z-10 transition-colors ${
                 mode === 'exclusive' ? 'text-blue-600' : 'text-gray-500'
               }`}
+              data-testid="exclusive_toggle"
             >
               Tax Exclusive
             </button>
@@ -353,6 +356,7 @@ export default function App() {
                   className="w-full pl-8 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all font-medium"
                   placeholder="0.00"
                   step="0.01"
+                  data-testid="price_input"
                 />
               </div>
             </div>
@@ -371,6 +375,7 @@ export default function App() {
                 onKeyDown={handleKeyDown}
                 className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all font-medium"
                 placeholder="1"
+                data-testid="quantity_input"
               />
             </div>
           </div>
@@ -387,6 +392,7 @@ export default function App() {
                   onWheel={(e) => e.currentTarget.blur()}
                   className="w-full pl-4 pr-8 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all font-medium"
                   placeholder="10"
+                  data-testid="tax_input"
                 />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 font-medium">%</span>
               </div>
@@ -396,6 +402,7 @@ export default function App() {
                 onClick={addItem}
                 disabled={price <= 0 || quantity <= 0}
                 className="bg-blue-600 text-white p-3 rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 font-bold px-6 h-[50px]"
+                data-testid="add_button"
               >
                 <Plus size={20} />
                 <span>Add</span>
@@ -423,6 +430,7 @@ export default function App() {
                     onClick={clearAll}
                     className="flex items-center gap-1 text-red-400 hover:text-red-600 transition-colors"
                     title="Clear All Items"
+                    data-testid="clear_all_button"
                   >
                     <Trash2 size={14} />
                     <span className="text-[10px] font-bold uppercase tracking-widest">Clear All</span>
@@ -454,6 +462,7 @@ export default function App() {
                         className={`p-2 rounded-lg transition-colors flex items-center gap-1.5 ${
                           item.applySurcharge ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
                         }`}
+                        data-testid="surcharge_button"
                         title="Toggle Surcharge"
                       >
                         <div className={`w-4 h-4 border-2 rounded flex items-center justify-center transition-colors ${
@@ -468,6 +477,7 @@ export default function App() {
                         className={`p-2 rounded-lg transition-colors flex items-center gap-1.5 ${
                           item.isTakeAway ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
                         }`}
+                        data-testid="takeaway_button"
                         title="Toggle Take Away"
                       >
                         <div className={`w-4 h-4 border-2 rounded flex items-center justify-center transition-colors ${
@@ -481,6 +491,7 @@ export default function App() {
                       <button 
                         onClick={() => removeItem(item.id)}
                         className="text-red-400 hover:text-red-600 p-1 transition-colors"
+                        data-testid="rubbish_button"
                       >
                         <Trash2 size={16} />
                       </button>
@@ -503,6 +514,7 @@ export default function App() {
                   className={`px-3 py-1 text-[10px] font-bold rounded-md transition-all ${
                     discountType === 'percentage' ? 'bg-blue-500 text-white shadow-sm' : 'text-gray-400 hover:text-gray-600'
                   }`}
+                  data-testid="percentage_discount_toggle"
                 >
                   %
                 </button>
@@ -511,6 +523,7 @@ export default function App() {
                   className={`px-3 py-1 text-[10px] font-bold rounded-md transition-all ${
                     discountType === 'fixed' ? 'bg-blue-500 text-white shadow-sm' : 'text-gray-400 hover:text-gray-600'
                   }`}
+                   data-testid="fixed_discount_toggle"
                 >
                   $
                 </button>
@@ -527,6 +540,7 @@ export default function App() {
                 onWheel={(e) => e.currentTarget.blur()}
                 className="w-full pl-8 pr-4 py-2 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-sm"
                 placeholder="0"
+                data-testid="discount_input"
               />
             </div>
           </div>
@@ -543,6 +557,7 @@ export default function App() {
                   onWheel={(e) => e.currentTarget.blur()}
                   className="w-full pl-8 pr-4 py-2 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all font-medium text-sm"
                   placeholder="0.00"
+                  data-testid="voucher_input"
                 />
               </div>
             </div>
@@ -563,23 +578,23 @@ export default function App() {
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-gray-500 text-sm">Subtotal</span>
-                <span className="font-mono font-medium">{formatCurrency(results.subtotal)}</span>
+                <span className="font-mono font-medium" data-testid="subtotal_amt">{formatCurrency(results.subtotal)}</span>
               </div>
               {results.discountAmount > 0 && (
                 <div className="flex justify-between items-center text-red-500">
                   <span className="text-sm">Discount {discountType === 'percentage' ? `(${discountValue}%)` : ''}</span>
-                  <span className="font-mono font-medium">-{formatCurrency(results.discountAmount)}</span>
+                  <span className="font-mono font-medium" data-testid="discount_amt">-{formatCurrency(results.discountAmount)}</span>
                 </div>
               )}
               <div className="flex justify-between items-center">
                 <span className="text-gray-500 text-sm">Surcharge ({surchargeRate}%)</span>
-                <span className="font-mono font-medium">{formatCurrency(results.surcharge)}</span>
+                <span className="font-mono font-medium" data-testid="surcharge_amt">{formatCurrency(results.surcharge)}</span>
               </div>
 
               {takeAwayType === 'fullBill' && results.takeAwayCharge > 0 && (
                 <div className="flex justify-between items-center text-orange-600">
                   <span className="text-sm">Take Away Charge</span>
-                  <span className="font-mono font-medium">{formatCurrency(results.takeAwayCharge)}</span>
+                  <span className="font-mono font-medium" data-testid="takeaway_amt">{formatCurrency(results.takeAwayCharge)}</span>
                 </div>
               )}
               
@@ -589,32 +604,32 @@ export default function App() {
                   <span className="text-gray-500 text-sm">
                     {mode === 'inclusive' ? 'Tax Inclusive' : 'Tax Exclusive'} ({rate}%)
                   </span>
-                  <span className="font-mono font-medium">{formatCurrency(amount as number)}</span>
+                  <span className="font-mono font-medium" data-testid="tax_amt">{formatCurrency(amount as number)}</span>
                 </div>
               ))}
 
               <div className="flex justify-between items-center">
                 <span className="text-gray-500 text-sm">Service Charge ({serviceChargeRate}%)</span>
-                <span className="font-mono font-medium">{formatCurrency(results.serviceCharge)}</span>
+                <span className="font-mono font-medium" data-testid="service_amt">{formatCurrency(results.serviceCharge)}</span>
               </div>
 
               {results.serviceTax > 0 && (
                 <div className="flex justify-between items-center">
                   <span className="text-gray-500 text-sm">Service Tax ({serviceTaxRate}%)</span>
-                  <span className="font-mono font-medium">{formatCurrency(results.serviceTax)}</span>
+                  <span className="font-mono font-medium" data-testid="service_tax_amt">{formatCurrency(results.serviceTax)}</span>
                 </div>
               )}
 
               {voucherValue > 0 && (
                 <div className="flex justify-between items-center text-green-600">
                   <span className="text-sm">Voucher</span>
-                  <span className="font-mono font-medium">-{formatCurrency(voucherValue)}</span>
+                  <span className="font-mono font-medium" data-testid="voucher_amt">-{formatCurrency(voucherValue)}</span>
                 </div>
               )}
               
               <div className="pt-4 mt-2 border-t border-gray-100 flex justify-between items-end">
                 <span className="font-bold text-gray-800">Grand Total</span>
-                <span className="text-2xl font-black text-blue-600 font-mono">
+                <span className="text-2xl font-black text-blue-600 font-mono" data-testid="grandtotal_amt">
                   {formatCurrency(results.grandTotal)}
                 </span>
               </div>
@@ -671,6 +686,7 @@ export default function App() {
                         onChange={(e) => setSurchargeRate(Number(e.target.value))}
                         onWheel={(e) => e.currentTarget.blur()}
                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-medium"
+                        data-testid="set_surcharge_input"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">%</span>
                     </div>
@@ -685,6 +701,7 @@ export default function App() {
                         onChange={(e) => setServiceChargeRate(Number(e.target.value))}
                         onWheel={(e) => e.currentTarget.blur()}
                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-medium"
+                        data-testid="set_service_input"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">%</span>
                     </div>
@@ -699,6 +716,7 @@ export default function App() {
                         onChange={(e) => setServiceTaxRate(Number(e.target.value))}
                         onWheel={(e) => e.currentTarget.blur()}
                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-medium"
+                        data-testid="set_service_tax_input"
                       />
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">%</span>
                     </div>
@@ -715,6 +733,7 @@ export default function App() {
                         className={`w-11 h-6 rounded-full transition-colors relative ${
                           surchargeIncludesDiscount ? 'bg-blue-500' : 'bg-gray-200'
                         }`}
+                        data-testid="surcharge_discount_toggle"
                       >
                         <motion.div
                           animate={{ x: surchargeIncludesDiscount ? 22 : 2 }}
@@ -733,6 +752,7 @@ export default function App() {
                         className={`w-11 h-6 rounded-full transition-colors relative ${
                           serviceChargeIncludesDiscount ? 'bg-blue-500' : 'bg-gray-200'
                         }`}
+                        data-testid="service_discount_toggle"
                       >
                         <motion.div
                           animate={{ x: serviceChargeIncludesDiscount ? 22 : 2 }}
@@ -751,6 +771,7 @@ export default function App() {
                         className={`w-11 h-6 rounded-full transition-colors relative ${
                           showVoucherField ? 'bg-blue-500' : 'bg-gray-200'
                         }`}
+                        data-testid="show_voucher_toggle"
                       >
                         <motion.div
                           animate={{ x: showVoucherField ? 22 : 2 }}
@@ -770,9 +791,10 @@ export default function App() {
                           value={takeAwayType}
                           onChange={(e) => setTakeAwayType(e.target.value as 'perItem' | 'fullBill')}
                           className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-medium"
+                          data-testid="charge_dropdown"
                         >
-                          <option value="perItem">Per Item</option>
-                          <option value="fullBill">Full Bill</option>
+                          <option value="perItem" data-testid="per_item_opt">Per Item</option>
+                          <option value="fullBill" data-testid="full_bill_opt">Full Bill</option>
                         </select>
                       </div>
                       <div className="space-y-2">
@@ -784,6 +806,7 @@ export default function App() {
                           onChange={(e) => setTakeAwayPrice(Number(e.target.value))}
                           onWheel={(e) => e.currentTarget.blur()}
                           className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none font-medium"
+                          data-testid="charge_input"
                         />
                       </div>
                     </div>
@@ -798,6 +821,7 @@ export default function App() {
                         className={`w-11 h-6 rounded-full transition-colors relative ${
                           scOnTakeAwayItems ? 'bg-blue-500' : 'bg-gray-200'
                         }`}
+                        data-testid="service_ta__toggle"
                       >
                         <motion.div
                           animate={{ x: scOnTakeAwayItems ? 22 : 2 }}
@@ -810,6 +834,7 @@ export default function App() {
                   <button
                     onClick={() => setShowSettings(false)}
                     className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors"
+                    data-testid="save_button"
                   >
                     Save Changes
                   </button>
