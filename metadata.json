@@ -1,0 +1,5 @@
+{
+  "name": "Remix: Remix: Advanced POS Calculator",
+  "description": "A professional POS calculation tool supporting tax-inclusive and tax-exclusive modes with customizable surcharge and service charge rates.",
+  "requestFramePermissions": []
+}
