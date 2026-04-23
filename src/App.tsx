@@ -295,7 +295,7 @@ export default function App() {
             <div className="bg-blue-500 p-2 rounded-lg text-white">
               <Calculator size={20} />
             </div>
-            <h1 className="text-xl font-bold tracking-tight">POS Calculator</h1>
+            <h1 className="text-xl font-bold tracking-tight">POS Calculator 2.0</h1>
           </div>
           <button 
             onClick={() => setShowSettings(true)}
