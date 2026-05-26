@@ -816,13 +816,12 @@ export default function App() {
                       <div className="space-y-0.5">
                         <label className="text-sm font-semibold text-gray-700">Service Charge on TA Items</label>
                         <p className="text-[10px] text-gray-400">Apply service charge to take away items</p>
-                      </div>
+                  </div>
                       <button
                         onClick={() => setScOnTakeAwayItems(!scOnTakeAwayItems)}
                         className={`w-11 h-6 rounded-full transition-colors relative ${
                           scOnTakeAwayItems ? 'bg-blue-500' : 'bg-gray-200'
                         }`}
-                        data-testid="service_ta__toggle"
                       >
                         <motion.div
                           animate={{ x: scOnTakeAwayItems ? 22 : 2 }}
@@ -832,21 +831,21 @@ export default function App() {
                     </div>
                   </div>
 
-                               <button
-                  onClick={() => setShowSettings(false)}
-                  className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors"
-                  data-testid="save_button"
-                >
-                  Save Changes
-                </button>
-              </div>
+                  <button
+                    onClick={() => setShowSettings(false)}
+                    className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors"
+                  >
+                    Save Changes
+                  </button>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </motion.div>
 
-      {/* Developer Name Widget */}
-      <div className="flex justify-center py-4">
+      {/* Developer Credits Widget */}
+      <div className="relative z-10 mt-2">
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
           className="bg-white/90 hover:bg-white backdrop-blur-md border border-slate-200/80 hover:border-slate-300 shadow-sm rounded-full px-4 py-1.5 text-[11px] font-semibold text-slate-500 hover:text-slate-800 transition-colors select-none cursor-pointer flex items-center justify-center overflow-hidden min-h-[32px]"
@@ -886,8 +885,6 @@ export default function App() {
           </AnimatePresence>
         </motion.button>
       </div>
-
-    </motion.div>
-  </div>
-);
+    </div>
+  );
 }
