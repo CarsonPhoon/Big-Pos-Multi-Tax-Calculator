@@ -284,7 +284,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f0f2f5] flex items-center justify-center p-4 font-sans text-[#1a252f]">
+    <div className="min-h-screen bg-[#f0f2f5] flex flex-col items-center justify-center p-4 gap-4 font-sans text-[#1a252f]">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
