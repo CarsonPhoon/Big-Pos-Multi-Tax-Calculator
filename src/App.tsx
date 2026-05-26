@@ -843,7 +843,7 @@ export default function App() {
           )}
         </AnimatePresence>
       </motion.div>
-
+    </div>
       {/* Developer Credits Widget */}
       <div className="relative z-10 mt-2">
         <motion.button
@@ -885,6 +885,5 @@ export default function App() {
           </AnimatePresence>
         </motion.button>
       </div>
-    </div>
   );
 }
