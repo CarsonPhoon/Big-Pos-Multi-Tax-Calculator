@@ -832,22 +832,21 @@ export default function App() {
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => setShowSettings(false)}
-                    className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors"
-                    data-testid="save_button"
-                  >
-                    Save Changes
-                  </button>
-                </div>
-              </motion.div>
+                               <button
+                  onClick={() => setShowSettings(false)}
+                  className="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-colors"
+                  data-testid="save_button"
+                >
+                  Save Changes
+                </button>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Developer Name Widget */}
-      <div className="relative z-10 mt-2">
+      <div className="flex justify-center py-4">
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
           className="bg-white/90 hover:bg-white backdrop-blur-md border border-slate-200/80 hover:border-slate-300 shadow-sm rounded-full px-4 py-1.5 text-[11px] font-semibold text-slate-500 hover:text-slate-800 transition-colors select-none cursor-pointer flex items-center justify-center overflow-hidden min-h-[32px]"
@@ -887,6 +886,8 @@ export default function App() {
           </AnimatePresence>
         </motion.button>
       </div>
-    </div>
-  );
+
+    </motion.div>
+  </div>
+);
 }
