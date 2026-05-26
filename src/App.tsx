@@ -52,6 +52,7 @@ export default function App() {
   
   // UI State
   const [showSettings, setShowSettings] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const addItem = () => {
     const qtyNum = parseFloat(quantity);
