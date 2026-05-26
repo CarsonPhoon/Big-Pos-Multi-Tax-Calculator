@@ -844,6 +844,48 @@ export default function App() {
           )}
         </AnimatePresence>
       </motion.div>
+
+      {/* Developer Name Widget */}
+      <div className="relative z-10 mt-2">
+        <motion.button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="bg-white/90 hover:bg-white backdrop-blur-md border border-slate-200/80 hover:border-slate-300 shadow-sm rounded-full px-4 py-1.5 text-[11px] font-semibold text-slate-500 hover:text-slate-800 transition-colors select-none cursor-pointer flex items-center justify-center overflow-hidden min-h-[32px]"
+          layout
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 30
+          }}
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+        >
+          <AnimatePresence mode="wait" initial={false}>
+            {!isExpanded ? (
+              <motion.span
+                key="abbrev"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.15 }}
+                className="font-mono tracking-widest text-[11px] italic text-[#787f9d] font-bold px-1.5 py-0.5 rounded-md"
+              >
+                T&C
+              </motion.span>
+            ) : (
+              <motion.span
+                key="full"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.15 }}
+                className="whitespace-nowrap inline-block text-slate-600 font-medium px-1"
+              >
+                Developed by Thomas & Carson
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </motion.button>
+      </div>
     </div>
   );
 }
