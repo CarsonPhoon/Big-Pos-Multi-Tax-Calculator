@@ -879,7 +879,7 @@ export default function App() {
                 transition={{ duration: 0.15 }}
                 className="whitespace-nowrap inline-block text-slate-600 font-medium px-1"
               >
-                Developed by Thomas & Carson
+                Developed by Thomas & Carson @ 2026 
               </motion.span>
             )}
           </AnimatePresence>
